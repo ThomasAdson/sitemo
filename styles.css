@@ -1,0 +1,203 @@
+/* Estilos Customizados e Animações - Docência Viva */
+
+/* Suavidade geral da página */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Scrollbar Lilás e Amarela */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5edff;
+}
+::-webkit-scrollbar-thumb {
+  background: #c084fc;
+  border-radius: 9999px;
+  border: 2px solid #f5edff;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+/* Transições das abas */
+.tab-btn {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* Efeito de destaque para o card de vídeo */
+#video-container {
+  box-shadow: 0 20px 50px -15px rgba(88, 28, 135, 0.45);
+}
+
+/* Accordion de Módulos */
+.accordion-header {
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background-color: #faf5ff;
+}
+
+/* Animação suave para troca de seções */
+.view-section {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo das opções do Quiz */
+.quiz-option {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.quiz-option:hover {
+  border-color: #a855f7;
+  background-color: #faf5ff;
+  transform: translateX(3px);
+}
+.quiz-option.selected {
+  border-color: #9333ea;
+  background-color: #f3e8ff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px -2px rgba(168, 85, 247, 0.2);
+}
+.quiz-option.correct {
+  border-color: #eab308;
+  background-color: #fef9c3;
+  color: #713f12;
+}
+.quiz-option.incorrect {
+  border-color: #ef4444;
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* ========================================== */
+/* ANIMAÇÕES DO MASCOTE FOFO (LILI A CORUJINHA) */
+/* ========================================== */
+.mascot-hover-float {
+  animation: mascotFloat 3.5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes mascotFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(1.5deg);
+  }
+}
+
+.mascot-wing-wave {
+  animation: wingWave 1.8s ease-in-out infinite;
+  transform-origin: 90px 65px;
+}
+
+@keyframes wingWave {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+.mascot-eyes {
+  animation: eyesBlink 4s infinite;
+  transform-origin: 60px 58px;
+}
+
+@keyframes eyesBlink {
+  0%, 94%, 98%, 100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+#mascot-tassel {
+  animation: tasselSway 2.5s ease-in-out infinite;
+  transform-origin: 60px 30px;
+}
+
+@keyframes tasselSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.mascot-poke {
+  animation: pokeBounce 0.45s ease-out !important;
+}
+
+@keyframes pokeBounce {
+  0% { transform: scale(1) translateY(0); }
+  35% { transform: scale(1.2, 0.8) translateY(6px); }
+  60% { transform: scale(0.9, 1.15) translateY(-12px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* ESTILOS DE IMPRESSÃO (PRINT/PDF) */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .no-print,
+  #mascot-container,
+  nav,
+  header,
+  footer,
+  .view-section:not(#view-certificate),
+  #view-certificate .no-print {
+    display: none !important;
+  }
+
+  #view-certificate {
+    display: block !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #printable-certificate {
+    border: 6px solid #d8b4fe !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    page-break-inside: avoid;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #faf5ff !important;
+  }
+
+  @page {
+    size: landscape;
+    margin: 1cm;
+  }
+}
